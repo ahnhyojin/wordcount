@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset=" utf-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<title>WordCount</title>
+<!--    function resetCheck(){
+            if (confirm("초기화하시겠습니까?")==true){
+                document.removefrm.submit();
+            }else{
+                return false;
+            }
+    } --> 
+         
+<script language = "javascript">
+    function pushbutton(){
+        alert("초기화????");
+    }
+</script>
+</head>
+
+<style>
+.content{
+    float: left;
+    width: 530px;
+}
+.result{
+    float: right;
+    width: 500px;
+    height: 470px;
+}
+</style>
+
+
+<body>
+     
+             
+               
+               
+    <div class= header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar static-top ">
+        <div class="container">
+            <a class="navbar-brand" href="#header">글자수 세기</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </nav></div>
+<br>
+<div class = container>
+    <div class = content>
+        <form action ="{% url 'count' %}"><br>
+          <textarea cols = '70' rows="17" name = "fulltext" placeholder="글을 입력해주세요">{{full_text}}</textarea><br>
+          <span style="float:right"><input type="submit" value="글자수세기"> </span>
+        </form>
+     <span style="float:left"><a href= "{% url 'index'%}" onclick="alert('초기화하시겠습니까?')"><button>초기화</button></a></span>
+    
+    <!--  <a href = "{% url 'index'%}"  role = "button">초기화1</a>
+    
+      <input type="button" onclick="alert('초기화하시겠습니까?')" value= "초기화2">
+     
+<a href = "{% url 'index'%}" role = "button" onclick="return delconfirm()">초기화3</a><br> 
+<input type="button" onclick="pushbutton()" value="초기화4">-->
+
+</div>
+
+    <div class = 'result'> <br>
+      <div class="card" style="width: 28rem;">
+          <div class="card-body"> 
+              <h5 class = "card-title"><b>결과</b></h5>
+               <p><b>단어수(공백제외)</b> : {{total}}</p>
+               <p>글자 빈도수
+               <br> 
+               {% for 단어, 단어수 in dic %}
+               {{단어}} : {{단어수}}
+               <br> {%endfor%}</p>
+          </div>
+      </div>
+<!--count 누르면 옆에 글자수 반복된 글자수 세는것 출력되게  
+밥 먹고 만들것 출력되는거 디자인 고민  -->
+    
+</div>
+
+</div>
+
+
+</body>
+
+</html>
