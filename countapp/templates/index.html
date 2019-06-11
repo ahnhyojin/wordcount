@@ -16,11 +16,6 @@
             }
     } --> 
          
-<script language = "javascript">
-    function pushbutton(){
-        alert("초기화????");
-    }
-</script>
 </head>
 
 <style>
@@ -44,18 +39,16 @@
     <div class= header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar static-top ">
         <div class="container">
-            <a class="navbar-brand" href="#header">글자수 세기</a>
+            <a class="navbar-brand" href="{% url 'index' %}">글자수 세기</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
+
                 </ul>
             </div>
         </div>
@@ -65,7 +58,7 @@
     <div class = content>
         <form action ="{% url 'count' %}"><br>
           <textarea cols = '70' rows="17" name = "fulltext" placeholder="글을 입력해주세요">{{full_text}}</textarea><br>
-          <span style="float:right"><input type="submit" value="글자수세기"> </span>
+          <span style="float:right"><input type="submit" value="단어수세기"> </span>
         </form>
      <span style="float:left"><a href= "{% url 'index'%}" onclick="alert('초기화하시겠습니까?')"><button>초기화</button></a></span>
     
@@ -82,8 +75,8 @@
       <div class="card" style="width: 28rem;">
           <div class="card-body"> 
               <h5 class = "card-title"><b>결과</b></h5>
-               <p><b>단어수(공백제외)</b> : {{total}}</p>
-               <p>글자 빈도수
+               <p><b>단어 수(공백제외)</b> : {{total}}</p>
+               <p><b>단어 빈도</b>
                <br> 
                {% for 단어, 단어수 in dic %}
                {{단어}} : {{단어수}}
